@@ -2,9 +2,21 @@
 # TODO MySQL DB 접속 정보를 아래에 설정하세요
 spring:
   jpa:
-    hibernate:
-      ddl-auto: create  # (1) 스키마 자동 생성
-    show-sql: true      # (2) SQL 쿼리 출력
-    properties:
-      hibernate:
-        format_sql: true  # (3) SQL pretty print
+    database: mysql
+    hibernate.ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/samplekiosk?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+logging:
+  level:
+    org:
+      springframework:
+        orm:
+          jpa: DEBUG
+server:
+  servlet:
+    encoding:
+      force-response: true
